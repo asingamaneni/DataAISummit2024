@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "dataaisummit"
+version = "0.1.0"
+description = "This package is to have executable demos on brickflow and spark-expectations"
+authors = ["Ashok Singamaneni <ashok.singamaneni90@gmail.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10,<3.11"
+brickflows = "^0.11.0"
+spark-expectations = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pyspark = "^3.0.0"
+black = "^23.12.1"
+mypy = "^1.8.0"
+prospector = "^1.10.3"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+bump = true
+style = "semver"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | \.whl
+  )/
+#  | foo.py           # also separately exclude a file named foo.py in
+#                     # the root of the project
+)
+'''
+
+[tool.mypy]
+disallow_untyped_defs = true
+ignore_missing_imports = true
+follow_imports = "skip"
