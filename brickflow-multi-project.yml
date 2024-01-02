@@ -1,0 +1,4 @@
+project_roots:
+  bf_demo_dataaisummit:
+    root_yaml_rel_path: dataaisummit
+version: v1
