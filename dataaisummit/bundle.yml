@@ -1,0 +1,1018 @@
+"bundle":
+  "name": "bf_demo_dataaisummit"
+"targets":
+  "bf_demo_dataaisummit-local":
+    "resources":
+      "jobs":
+        "coffeeco_dais2024_wf":
+          "email_notifications": null
+          "git_source": null
+          "health": null
+          "job_clusters":
+          - "job_cluster_key": "ashok-singamaneni_dais2024"
+            "new_cluster":
+              "autoscale":
+                "max_workers": 16.0
+                "min_workers": 1.0
+              "aws_attributes": null
+              "custom_tags":
+                "nike-application": "apla_edai_msct"
+                "nike-department": "platform eng - analytics platform"
+                "nike-distributionlist": "Lst-App.gap-gpaas-ae.Admins@Nike.com"
+                "nike-domain": "technical platforms"
+                "nike-environment": "dev"
+                "nike-org": "EDAI"
+                "nike-org-geo": "na"
+                "nike-owner": "anurag.lokhande@nike.com"
+                "nike-squad": "apla_edai_msct"
+                "workspace": "nike-sole-react.cloud.databricks.com"
+              "data_security_mode": "SINGLE_USER"
+              "driver_instance_pool_id": null
+              "driver_node_type_id": "mg-fleet.xlarge"
+              "enable_elastic_disk": null
+              "init_scripts": null
+              "instance_pool_id": null
+              "node_type_id": "mgd-fleet.xlarge"
+              "num_workers": null
+              "policy_id": "000C9E3BBADF3E5F"
+              "runtime_engine": null
+              "spark_conf": null
+              "spark_env_vars": null
+              "spark_version": "13.3.x-scala2.12"
+          "max_concurrent_runs": 1.0
+          "name": "Ashok_Singamaneni_coffeeco_dais2024_wf"
+          "notification_settings": null
+          "permissions": null
+          "schedule": null
+          "tags":
+            "brickflow_deployment_mode": "Databricks Asset Bundles"
+            "brickflow_project_name": "bf_demo_dataaisummit"
+            "brickflow_version": "0.11.0a0"
+            "deployed_by": "Ashok_Singamaneni"
+            "environment": "local"
+            "product_id": "brickflow_demo"
+            "slack_channel": "nike-sole-brickflow-support"
+          "tasks":
+          - "depends_on":
+            - "task_key": "silver_coffee"
+            - "task_key": "silver_coffee_product"
+            - "task_key": "silver_customer"
+            - "task_key": "silver_product"
+            - "task_key": "silver_store"
+            - "task_key": "silver_order"
+            - "task_key": "silver_total"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "branch"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "tin_coffee"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "bronze_coffee"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "tin_coffee_product"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "bronze_coffee_product"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "tin_customer"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "bronze_customer"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "tin_order"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "bronze_order"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "tin_product"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "bronze_product"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "tin_store"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "bronze_store"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "tin_total"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "bronze_total"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "gold_denormalized"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "end"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "branch"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "gold_denormalized"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "bronze_coffee"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "silver_coffee"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "bronze_coffee_product"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "silver_coffee_product"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "bronze_customer"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "silver_customer"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "bronze_order"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "silver_order"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "bronze_product"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "silver_product"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "bronze_store"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "silver_store"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "bronze_total"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "silver_total"
+            "timeout_seconds": null
+          - "depends_on": []
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "start"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "start"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "tin_coffee"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "start"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "tin_coffee_product"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "start"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "tin_customer"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "start"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "tin_order"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "start"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "tin_product"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "start"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "tin_store"
+            "timeout_seconds": null
+          - "depends_on":
+            - "task_key": "start"
+            "email_notifications": {}
+            "job_cluster_key": "ashok-singamaneni_dais2024"
+            "libraries":
+            - "pypi":
+                "package": "brickflows @ git+https://github.com/Nike-Inc/brickflow.git@main"
+                "repo": null
+            - "jar": "dbfs:/kafka-jars/databricks-shaded-strimzi-kafka-oauth-client-1.1.jar"
+            "max_retries": null
+            "min_retry_interval_millis": null
+            "notebook_task":
+              "base_parameters":
+                "brickflow_env": "local"
+                "brickflow_internal_only_run_tasks": ""
+                "brickflow_internal_task_name": "{{task_key}}"
+                "brickflow_internal_workflow_name": "coffeeco_dais2024_wf"
+                "brickflow_internal_workflow_prefix": ""
+                "brickflow_internal_workflow_suffix": ""
+                "brickflow_job_id": "{{job_id}}"
+                "brickflow_parent_run_id": "{{parent_run_id}}"
+                "brickflow_run_id": "{{run_id}}"
+                "brickflow_start_date": "{{start_date}}"
+                "brickflow_start_time": "{{start_time}}"
+                "brickflow_task_key": "{{task_key}}"
+                "brickflow_task_retry_count": "{{task_retry_count}}"
+                "bronze_database": "bronze"
+                "catalog": "coffeeco"
+                "date": "2024-06-07"
+                "gold_database": "gold"
+                "silver_database": "silver"
+                "tin_database": "tin"
+                "tomorrow_date": "2024-06-08"
+              "notebook_path": "workflows/entrypoint.py"
+              "source": "WORKSPACE"
+            "retry_on_timeout": null
+            "task_key": "tin_total"
+            "timeout_seconds": null
+          "timeout_seconds": null
+          "webhook_notifications": null
+      "pipelines": {}
+    "workspace":
+      "file_path": "/Users/${workspace.current_user.userName}/.brickflow_bundles/bf_demo_dataaisummit/local/files"
+      "root_path": "/Users/${workspace.current_user.userName}/.brickflow_bundles/bf_demo_dataaisummit/local"
+      "state_path": "/Users/${workspace.current_user.userName}/.brickflow_bundles/bf_demo_dataaisummit/local/state"
+"workspace": {}
